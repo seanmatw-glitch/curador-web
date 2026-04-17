@@ -121,12 +121,12 @@ document.addEventListener('DOMContentLoaded', () => {
    Dispensary Marker Placement
    ============================================ */
 
-// Map bounds tuned so STL cluster lands on ST. LOUIS label
+// Map bounds: shift all dots east; STL cluster lands right at the IL border
 const MAP_BOUNDS = {
   latTop: 40.93,
   latBottom: 35.81,
   lngLeft: -96.13,
-  lngRight: -87.78
+  lngRight: -88.15
 };
 
 function latLngToPercent(lat, lng) {
