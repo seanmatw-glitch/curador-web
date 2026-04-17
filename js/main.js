@@ -139,22 +139,23 @@ function latLngToPercent(lat, lng) {
 // Excludes: KC Cannabis x5, Cassville x1, Budds x1, Missouri Made x1, Verts x4
 const DISPENSARY_CITIES = [
   // ── St. Louis Metro (dense cluster — ~15 locations) ──
-  // Real MO coords; map bounds now calibrated so cluster lands on ST. LOUIS label
-  { lat: 38.627, lng: -90.199, size: 'lg' },   // Downtown STL
-  { lat: 38.645, lng: -90.245, size: 'md' },   // North City
-  { lat: 38.598, lng: -90.240, size: 'md' },   // South City
-  { lat: 38.635, lng: -90.285, size: 'md' },   // Central West End
-  { lat: 38.660, lng: -90.302, size: 'sm' },   // U City
-  { lat: 38.580, lng: -90.265, size: 'sm' },   // Tower Grove
-  { lat: 38.615, lng: -90.340, size: 'sm' },   // Maplewood
-  { lat: 38.642, lng: -90.380, size: 'sm' },   // Olivette
-  { lat: 38.668, lng: -90.335, size: 'sm' },   // Overland
-  { lat: 38.592, lng: -90.350, size: 'sm' },   // Webster Groves
-  { lat: 38.555, lng: -90.290, size: 'sm' },   // Lemay
-  { lat: 38.695, lng: -90.295, size: 'sm' },   // Bridgeton
-  { lat: 38.610, lng: -90.230, size: 'sm' },   // North STL (kept west of river)
-  { lat: 38.650, lng: -90.410, size: 'sm' },   // Creve Coeur
-  { lat: 38.578, lng: -90.405, size: 'sm' },   // Kirkwood
+  // Pushed east ~0.024 so cluster sits right against the Mississippi/IL
+  // border (~-90.18) without crossing; lat restored to real values
+  { lat: 38.627, lng: -90.175, size: 'lg' },   // Downtown STL (riverfront)
+  { lat: 38.645, lng: -90.221, size: 'md' },   // North City
+  { lat: 38.598, lng: -90.216, size: 'md' },   // South City
+  { lat: 38.635, lng: -90.261, size: 'md' },   // Central West End
+  { lat: 38.660, lng: -90.278, size: 'sm' },   // U City
+  { lat: 38.580, lng: -90.241, size: 'sm' },   // Tower Grove
+  { lat: 38.615, lng: -90.316, size: 'sm' },   // Maplewood
+  { lat: 38.642, lng: -90.356, size: 'sm' },   // Olivette
+  { lat: 38.668, lng: -90.311, size: 'sm' },   // Overland
+  { lat: 38.592, lng: -90.326, size: 'sm' },   // Webster Groves
+  { lat: 38.555, lng: -90.266, size: 'sm' },   // Lemay
+  { lat: 38.695, lng: -90.271, size: 'sm' },   // Bridgeton
+  { lat: 38.610, lng: -90.195, size: 'sm' },   // North STL (kept west of river)
+  { lat: 38.650, lng: -90.386, size: 'sm' },   // Creve Coeur
+  { lat: 38.578, lng: -90.381, size: 'sm' },   // Kirkwood
   // Chesterfield / West County
   { lat: 38.663, lng: -90.530, size: 'md' },   // Chesterfield
   { lat: 38.700, lng: -90.490, size: 'sm' },   // Maryland Heights
