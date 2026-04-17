@@ -168,25 +168,25 @@ const DISPENSARY_CITIES = [
   { lat: 38.221, lng: -90.397, size: 'sm' },   // Festus
 
   // ── Kansas City Metro (dense cluster — ~12 locations) ──
-  // Shifted east +0.15 so cluster sits clearly inside MO, right at KS border
-  { lat: 39.099, lng: -94.428, size: 'lg' },   // Downtown KC
-  { lat: 39.054, lng: -94.441, size: 'md' },   // Westport (KCMO)
-  { lat: 39.060, lng: -94.430, size: 'md' },   // Midtown
-  { lat: 39.130, lng: -94.405, size: 'md' },   // Northeast KC
-  { lat: 39.089, lng: -94.455, size: 'sm' },   // Westside (KCMO)
-  { lat: 39.050, lng: -94.370, size: 'sm' },   // Swope area
-  { lat: 39.112, lng: -94.426, size: 'sm' },   // Columbus Park
-  { lat: 39.035, lng: -94.305, size: 'sm' },   // Raytown
-  { lat: 39.017, lng: -94.265, size: 'sm' },   // Grandview
-  { lat: 39.145, lng: -94.330, size: 'sm' },   // Independence (N)
+  // Shifted east +0.25 total so cluster sits clearly inside MO
+  { lat: 39.099, lng: -94.328, size: 'lg' },   // Downtown KC
+  { lat: 39.054, lng: -94.341, size: 'md' },   // Westport (KCMO)
+  { lat: 39.060, lng: -94.330, size: 'md' },   // Midtown
+  { lat: 39.130, lng: -94.305, size: 'md' },   // Northeast KC
+  { lat: 39.089, lng: -94.355, size: 'sm' },   // Westside (KCMO)
+  { lat: 39.050, lng: -94.270, size: 'sm' },   // Swope area
+  { lat: 39.112, lng: -94.326, size: 'sm' },   // Columbus Park
+  { lat: 39.035, lng: -94.205, size: 'sm' },   // Raytown
+  { lat: 39.017, lng: -94.165, size: 'sm' },   // Grandview
+  { lat: 39.145, lng: -94.230, size: 'sm' },   // Independence (N)
   // Independence / Blue Springs / Lee's Summit
-  { lat: 39.091, lng: -94.264, size: 'md' },   // Independence
-  { lat: 39.017, lng: -94.132, size: 'sm' },   // Blue Springs
-  { lat: 38.911, lng: -94.232, size: 'md' },   // Lee's Summit
-  { lat: 38.888, lng: -94.190, size: 'sm' },   // Lee's Summit S
+  { lat: 39.091, lng: -94.164, size: 'md' },   // Independence
+  { lat: 39.017, lng: -94.032, size: 'sm' },   // Blue Springs
+  { lat: 38.911, lng: -94.132, size: 'md' },   // Lee's Summit
+  { lat: 38.888, lng: -94.090, size: 'sm' },   // Lee's Summit S
   // Liberty / Gladstone
-  { lat: 39.246, lng: -94.269, size: 'sm' },   // Liberty
-  { lat: 39.205, lng: -94.405, size: 'sm' },   // Gladstone
+  { lat: 39.246, lng: -94.169, size: 'sm' },   // Liberty
+  { lat: 39.205, lng: -94.305, size: 'sm' },   // Gladstone
 
   // ── Springfield (cluster — ~6 locations) ──
   { lat: 37.209, lng: -93.292, size: 'lg' },   // Downtown
@@ -206,14 +206,14 @@ const DISPENSARY_CITIES = [
   { lat: 38.577, lng: -92.174, size: 'md' },
   { lat: 38.560, lng: -92.210, size: 'sm' },
 
-  // ── Joplin (shifted east +0.15 to stay inside MO) ──
-  { lat: 37.084, lng: -94.363, size: 'md' },
-  { lat: 37.060, lng: -94.330, size: 'sm' },
-  { lat: 37.100, lng: -94.395, size: 'sm' },
+  // ── Joplin (shifted east +0.25 total to stay inside MO) ──
+  { lat: 37.084, lng: -94.263, size: 'md' },
+  { lat: 37.060, lng: -94.230, size: 'sm' },
+  { lat: 37.100, lng: -94.295, size: 'sm' },
 
-  // ── St. Joseph (shifted east +0.15 to stay inside MO) ──
-  { lat: 39.769, lng: -94.697, size: 'md' },
-  { lat: 39.750, lng: -94.670, size: 'sm' },
+  // ── St. Joseph (shifted east +0.25 total to stay inside MO) ──
+  { lat: 39.769, lng: -94.597, size: 'md' },
+  { lat: 39.750, lng: -94.570, size: 'sm' },
 
   // ── Cape Girardeau ──
   { lat: 37.306, lng: -89.518, size: 'md' },
@@ -369,7 +369,7 @@ const DISPENSARY_CITIES = [
 
 // Kansas City label only — the map image labels the other MO cities already
 const CITY_LABELS = [
-  { name: 'KANSAS CITY', lat: 39.099, lng: -94.428, dx: 0, dy: -38 },
+  { name: 'KANSAS CITY', lat: 39.099, lng: -94.328, dx: 0, dy: -38 },
 ];
 
 function placeMarkers() {
