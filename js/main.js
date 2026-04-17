@@ -121,14 +121,12 @@ document.addEventListener('DOMContentLoaded', () => {
    Dispensary Marker Placement
    ============================================ */
 
-// Map bounds calibrated from visible labels on missouri-map.png
-// Anchors: Saint Joseph MO (14%,~22%), ST. LOUIS MO (65%,~42%),
-// Joplin MO (18%,68%), Columbia MO (43%,35%)
+// Map bounds tuned so STL cluster lands on ST. LOUIS label
 const MAP_BOUNDS = {
   latTop: 40.93,
-  latBottom: 35.26,
+  latBottom: 35.81,
   lngLeft: -96.13,
-  lngRight: -87.01
+  lngRight: -87.78
 };
 
 function latLngToPercent(lat, lng) {
@@ -141,22 +139,22 @@ function latLngToPercent(lat, lng) {
 // Excludes: KC Cannabis x5, Cassville x1, Budds x1, Missouri Made x1, Verts x4
 const DISPENSARY_CITIES = [
   // ── St. Louis Metro (dense cluster — ~15 locations) ──
-  // Shifted west ~0.10° so cluster + pulse animation stays visibly inside MO
-  { lat: 38.627, lng: -90.310, size: 'lg' },   // Downtown STL
-  { lat: 38.645, lng: -90.345, size: 'md' },   // North City
-  { lat: 38.598, lng: -90.320, size: 'md' },   // South City
-  { lat: 38.635, lng: -90.385, size: 'md' },   // Central West End
-  { lat: 38.660, lng: -90.400, size: 'sm' },   // U City
-  { lat: 38.580, lng: -90.365, size: 'sm' },   // Tower Grove
-  { lat: 38.615, lng: -90.440, size: 'sm' },   // Maplewood
-  { lat: 38.642, lng: -90.475, size: 'sm' },   // Olivette
-  { lat: 38.668, lng: -90.435, size: 'sm' },   // Overland
-  { lat: 38.592, lng: -90.450, size: 'sm' },   // Webster Groves
-  { lat: 38.555, lng: -90.390, size: 'sm' },   // Lemay
-  { lat: 38.695, lng: -90.395, size: 'sm' },   // Bridgeton
-  { lat: 38.610, lng: -90.275, size: 'sm' },   // North STL (was east-of-river)
-  { lat: 38.650, lng: -90.505, size: 'sm' },   // Creve Coeur
-  { lat: 38.578, lng: -90.500, size: 'sm' },   // Kirkwood
+  // Real MO coords; map bounds now calibrated so cluster lands on ST. LOUIS label
+  { lat: 38.627, lng: -90.199, size: 'lg' },   // Downtown STL
+  { lat: 38.645, lng: -90.245, size: 'md' },   // North City
+  { lat: 38.598, lng: -90.240, size: 'md' },   // South City
+  { lat: 38.635, lng: -90.285, size: 'md' },   // Central West End
+  { lat: 38.660, lng: -90.302, size: 'sm' },   // U City
+  { lat: 38.580, lng: -90.265, size: 'sm' },   // Tower Grove
+  { lat: 38.615, lng: -90.340, size: 'sm' },   // Maplewood
+  { lat: 38.642, lng: -90.380, size: 'sm' },   // Olivette
+  { lat: 38.668, lng: -90.335, size: 'sm' },   // Overland
+  { lat: 38.592, lng: -90.350, size: 'sm' },   // Webster Groves
+  { lat: 38.555, lng: -90.290, size: 'sm' },   // Lemay
+  { lat: 38.695, lng: -90.295, size: 'sm' },   // Bridgeton
+  { lat: 38.610, lng: -90.230, size: 'sm' },   // North STL (kept west of river)
+  { lat: 38.650, lng: -90.410, size: 'sm' },   // Creve Coeur
+  { lat: 38.578, lng: -90.405, size: 'sm' },   // Kirkwood
   // Chesterfield / West County
   { lat: 38.663, lng: -90.530, size: 'md' },   // Chesterfield
   { lat: 38.700, lng: -90.490, size: 'sm' },   // Maryland Heights
@@ -169,14 +167,14 @@ const DISPENSARY_CITIES = [
   { lat: 38.221, lng: -90.397, size: 'sm' },   // Festus
 
   // ── Kansas City Metro (dense cluster — ~12 locations) ──
-  // All kept east of KS state line (~-94.608) so dots stay inside Missouri
-  { lat: 39.099, lng: -94.560, size: 'lg' },   // Downtown KC
-  { lat: 39.115, lng: -94.580, size: 'md' },   // Westport (MO side)
-  { lat: 39.060, lng: -94.565, size: 'md' },   // Midtown
-  { lat: 39.130, lng: -94.540, size: 'md' },   // Northeast KC
-  { lat: 39.080, lng: -94.590, size: 'sm' },   // River Market
+  // Real MO coords; KS state line ~-94.608, everything kept east of it
+  { lat: 39.099, lng: -94.578, size: 'lg' },   // Downtown KC
+  { lat: 39.054, lng: -94.591, size: 'md' },   // Westport (KCMO)
+  { lat: 39.060, lng: -94.580, size: 'md' },   // Midtown
+  { lat: 39.130, lng: -94.555, size: 'md' },   // Northeast KC
+  { lat: 39.089, lng: -94.605, size: 'sm' },   // Westside (KCMO)
   { lat: 39.050, lng: -94.520, size: 'sm' },   // Swope area
-  { lat: 39.140, lng: -94.600, size: 'sm' },   // State Line (MO side)
+  { lat: 39.112, lng: -94.576, size: 'sm' },   // Columbus Park
   { lat: 39.035, lng: -94.455, size: 'sm' },   // Raytown
   { lat: 39.017, lng: -94.415, size: 'sm' },   // Grandview
   { lat: 39.145, lng: -94.480, size: 'sm' },   // Independence (N)
@@ -187,7 +185,7 @@ const DISPENSARY_CITIES = [
   { lat: 38.888, lng: -94.340, size: 'sm' },   // Lee's Summit S
   // Liberty / Gladstone
   { lat: 39.246, lng: -94.419, size: 'sm' },   // Liberty
-  { lat: 39.205, lng: -94.540, size: 'sm' },   // Gladstone
+  { lat: 39.205, lng: -94.555, size: 'sm' },   // Gladstone
 
   // ── Springfield (cluster — ~6 locations) ──
   { lat: 37.209, lng: -93.292, size: 'lg' },   // Downtown
@@ -207,14 +205,14 @@ const DISPENSARY_CITIES = [
   { lat: 38.577, lng: -92.174, size: 'md' },
   { lat: 38.560, lng: -92.210, size: 'sm' },
 
-  // ── Joplin (pulled east, KS line is near -94.618 at this latitude) ──
-  { lat: 37.084, lng: -94.480, size: 'md' },
-  { lat: 37.060, lng: -94.450, size: 'sm' },
-  { lat: 37.100, lng: -94.510, size: 'sm' },
+  // ── Joplin ──
+  { lat: 37.084, lng: -94.513, size: 'md' },
+  { lat: 37.060, lng: -94.480, size: 'sm' },
+  { lat: 37.100, lng: -94.545, size: 'sm' },
 
-  // ── St. Joseph (pulled east, KS line is ~-94.93 at this latitude) ──
-  { lat: 39.769, lng: -94.820, size: 'md' },
-  { lat: 39.750, lng: -94.790, size: 'sm' },
+  // ── St. Joseph ──
+  { lat: 39.769, lng: -94.847, size: 'md' },
+  { lat: 39.750, lng: -94.820, size: 'sm' },
 
   // ── Cape Girardeau ──
   { lat: 37.306, lng: -89.518, size: 'md' },
