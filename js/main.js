@@ -121,13 +121,14 @@ document.addEventListener('DOMContentLoaded', () => {
    Dispensary Marker Placement
    ============================================ */
 
-// Map bounds for the static image (CartoDB Positron, zoom 7, centered ~38.45, -92.3)
-// Image covers roughly: lat 40.2 to 36.0, lng -96.0 to -88.5
+// Map bounds calibrated from visible labels on missouri-map.png
+// Anchors: Saint Joseph MO (14%,~22%), ST. LOUIS MO (65%,~42%),
+// Joplin MO (18%,68%), Columbia MO (43%,35%)
 const MAP_BOUNDS = {
-  latTop: 40.5,
-  latBottom: 35.8,
-  lngLeft: -96.2,
-  lngRight: -88.3
+  latTop: 40.93,
+  latBottom: 35.26,
+  lngLeft: -96.13,
+  lngRight: -87.01
 };
 
 function latLngToPercent(lat, lng) {
