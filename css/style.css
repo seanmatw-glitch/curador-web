@@ -565,10 +565,10 @@ a {
 .mo-marker__dot {
   width: 8px;
   height: 8px;
-  background: #ff5a00;
+  background: #0dc49c;
   border-radius: 50%;
   border: 1.5px solid #ffffff;
-  box-shadow: 0 0 6px rgba(255, 90, 0, 0.6);
+  box-shadow: 0 0 6px rgba(13, 196, 156, 0.6);
   position: absolute;
   top: 50%;
   left: 50%;
@@ -582,7 +582,7 @@ a {
   left: 50%;
   width: 8px;
   height: 8px;
-  background: rgba(255, 90, 0, 0.55);
+  background: rgba(13, 196, 156, 0.55);
   border-radius: 50%;
   z-index: 1;
   transform: translate(-50%, -50%) scale(1);
