@@ -930,6 +930,14 @@ a {
     padding: 20px 24px;
   }
 
+  .hero {
+    padding: 120px 16px 80px;
+  }
+
+  .hero__logo {
+    width: 100%;
+  }
+
   .presence__copy {
     margin-top: 40px;
   }
