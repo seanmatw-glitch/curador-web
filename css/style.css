@@ -938,6 +938,11 @@ a {
     width: 100%;
   }
 
+  .hero__signature {
+    max-width: 160px;
+    margin-top: 36px;
+  }
+
   .presence__copy {
     margin-top: 40px;
   }
