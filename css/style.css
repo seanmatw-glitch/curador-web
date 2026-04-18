@@ -291,7 +291,8 @@ a {
 .hero__logo {
   display: block;
   margin: 0 auto;
-  max-width: clamp(400px, 70vw, 800px);
+  width: clamp(600px, 95vw, 1600px);
+  max-width: 100%;
   height: auto;
   opacity: 0;
   transform: translateY(30px);
